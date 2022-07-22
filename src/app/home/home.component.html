@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="home.component.sass">
+  <title>HOME</title>
+</head>
+<body> 
+  <div *ngIf="this.employeeinfo.num_elements" class="nil">NO CONTACTS AVAILABLE</div>
+  <h3 class="font-weight">CONTACTS</h3>
+  <div class="flex-container" *ngIf="!this.employeeinfo.num_elements">
+     <div class="container">
+      
+      <div class="b" *ngFor="let d of this.employeeinfo.employeelist;index as i" (click)="displaydetails(d,i)">
+          <div  id="dname">{{d.name}}</div>
+          <div>{{d.phno}}</div>
+          <div>{{d.email}}</div>
+      </div>
+
+     </div>
+
+  <div class="selected-contact">
+      <div>
+      <h4 class="selected-contact-header">{{info.name}}</h4>
+      <div>
+        <div class="font-size">Email:&nbsp;{{info.email}}</div>
+         <div class="font-size"> Mobile: {{info.phno}}</div>
+          <div class="font-size">Landline: {{info.landline}}</div>
+          <div class="font-size">Website: {{info.website}}</div>
+          <pre style="font-family: 'Lato', sans-serif;" class="font-size">Address:{{info.Address}}</pre>       
+          </div>
+      </div>
+      <div style="display: flex;" class="edit">
+             <div> <img src="assets/images/edit1.jpg" height="15px"></div>
+             <div routerLink="/edit" (click)="edit()" style="padding-left: 3px;">EDIT</div>
+
+          </div>
+          <div style="display: flex;" class="delete">
+          <div>
+              <img src="assets/images/delete2.png" height="25px"></div>
+             <div (click)="delete()">DELETE</div>
+          </div>
+          </div>
+          </div>
+  
+</body>
+</html>
